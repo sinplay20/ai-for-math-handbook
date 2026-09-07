@@ -40,6 +40,33 @@ const activeObserver = new IntersectionObserver(entries => {
 
 observed.forEach(section => activeObserver.observe(section));
 
+document.querySelectorAll('.section-content pre').forEach(pre => {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'md-code-card';
+  pre.parentNode.insertBefore(wrapper, pre);
+  wrapper.appendChild(pre);
+
+  const header = document.createElement('div');
+  header.className = 'code-head';
+  header.innerHTML = '<span>代码示例</span>';
+
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.textContent = '复制';
+  button.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(pre.innerText);
+      button.textContent = '已复制';
+      setTimeout(() => { button.textContent = '复制'; }, 1400);
+    } catch {
+      button.textContent = '请手动复制';
+    }
+  });
+
+  header.appendChild(button);
+  wrapper.insertBefore(header, pre);
+});
+
 document.querySelectorAll('[data-copy]').forEach(button => {
   button.addEventListener('click', async () => {
     const target = document.getElementById(button.dataset.copy);
