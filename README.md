@@ -26,6 +26,8 @@ _sections/
 └── 03-06-sharing.md
 ```
 
+`03-04-lean.md` 和 `03-05-sharing.md` 是兼容网页覆盖上传的退役占位文件，用于停用 v0.2 遗留章节，避免目录重复；不要在其中编写正文。
+
 修改某一节时，只编辑对应 `.md` 文件并提交。首页和侧边目录会根据文件顶部的 `chapter`、`order`、`number`、`title` 和 `slug` 自动生成。
 
 例如：
@@ -65,6 +67,7 @@ bundle exec jekyll serve
 - 正文位于 `_sections/*.md`。
 - 首页装配逻辑位于 `index.html`。
 - 页面框架位于 `_layouts/default.html`。
+- 研究知识流图的 HTML 位于 `_sections/03-04-research-knowledge-flow.md`，样式位于 `assets/styles.css`。
 - 站点配置位于 `_config.yml`。
 - 视觉样式位于 `assets/styles.css`。
 - 目录、阅读进度和代码复制功能位于 `assets/app.js`。
