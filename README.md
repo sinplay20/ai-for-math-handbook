@@ -1,6 +1,6 @@
 # AI for Math 课题组手册
 
-面向数学课题组的简版 AI 使用手册，涵盖大模型与 API、Agent、Prompt、Skill、Workflow、MCP 和 Lean。
+面向数学课题组的简版 AI 使用手册，涵盖大模型与 API、Obsidian/Zotero 研究软件、Agent、Prompt、Skill、Workflow、MCP 和 Lean。
 
 ## 本地查看
 
@@ -14,14 +14,16 @@
 _sections/
 ├── 01-01-web-and-desktop.md
 ├── 01-02-api.md
+├── 01-03-ai-in-research-apps.md
 ├── 02-01-agent-tools.md
 ├── 02-02-prompt.md
 ├── 02-03-skill-workflow.md
 ├── 03-01-mcp.md
 ├── 03-02-agent-system.md
 ├── 03-03-danus.md
-├── 03-04-lean.md
-└── 03-05-sharing.md
+├── 03-04-research-knowledge-flow.md
+├── 03-05-lean.md
+└── 03-06-sharing.md
 ```
 
 修改某一节时，只编辑对应 `.md` 文件并提交。首页和侧边目录会根据文件顶部的 `chapter`、`order`、`number`、`title` 和 `slug` 自动生成。
