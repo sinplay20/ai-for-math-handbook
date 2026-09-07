@@ -12,7 +12,7 @@ nav_title: 研究知识流
 <figure class="research-flow" aria-labelledby="research-flow-caption">
   <figcaption id="research-flow-caption">Research Knowledge Flow</figcaption>
   <div class="research-flow-scroll" tabindex="0" role="region" aria-label="课题组研究知识流横向结构图，可左右滚动查看">
-    <div class="research-flow-grid" role="img" aria-label="Zotero 与 Agent、Logseq 或 Obsidian、JSON、Lean 双向连接。LLM 位于 Agent 上方并通过 API 连接，Git 位于 JSON 上方并负责版本控制。">
+    <div class="research-flow-grid" role="img" aria-label="Zotero 与 Agent、Logseq 或 Obsidian、JSON、Lean 双向连接。LLM 位于 Agent 上方并通过 API 连接，Git 位于 JSON 上方并负责版本控制。研究者位于 Agent 与知识库下方，负责提出任务、作出决策、核查和编辑知识。">
       <div class="research-flow-node research-flow-top research-flow-llm">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.2 4.1L17 9l-3.8 1.9L12 15l-1.2-4.1L7 9l3.8-1.9L12 3Zm6 10 .7 2.3L21 16.5l-2.3 1.2L18 20l-.7-2.3-2.3-1.2 2.3-1.2L18 13Z"/></svg>
         <strong>LLM</strong>
@@ -54,12 +54,19 @@ nav_title: 研究知识流
         <strong>Lean</strong>
         <span>Formal Verification</span>
       </div>
+      <div class="research-flow-vlink research-flow-human-agent" aria-hidden="true"><span>Task · Decision</span><i></i></div>
+      <div class="research-flow-vlink research-flow-human-knowledge" aria-hidden="true"><span>Review · Edit</span><i></i></div>
+      <div class="research-flow-node research-flow-human">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="3"/><path d="M5 21c.5-5 3-8 7-8s6.5 3 7 8"/></svg>
+        <strong>Human Researcher</strong>
+        <span>Goals · Review · Final Decisions</span>
+      </div>
     </div>
   </div>
   <p class="research-flow-hint">在窄屏设备上左右滑动查看完整横向结构。</p>
 </figure>
 
-LLM 和 Git 是两条辅助能力：Agent 通过 API 调用 LLM，Git 则对 JSON 等可交换、可审查的文件进行版本控制。
+图中的主线始终保持横向：**Zotero ↔ Agent ↔ Logseq / Obsidian ↔ JSON ↔ Lean**。LLM 和 Git 是两条辅助能力：Agent 通过 API 调用 LLM，Git 则对 JSON 等可交换、可审查的文件进行版本控制。研究者位于 Agent 与知识库下方：向 Agent 提出任务并作出关键决策，同时核查、修改和批准进入长期知识库的内容。
 
 #### 主线中的三个核心角色
 
@@ -81,6 +88,10 @@ MCP Server 只暴露检索、读取和写入等能力，不判断应该读哪篇
 LLM 提供理解、生成和推理能力；Agent 则负责上下文、工具调用、任务状态和执行循环。两者通过 API 双向交换请求与结果，因此可以更换模型服务，而不必重写整条知识流。
 
 课题组真正需要长期维护的，是论文忠实拆解、定理核查、引用定位和笔记模板等 Skill 与 Workflow，而不是绑定某一个模型。
+
+#### 人始终拥有最终决定权
+
+Agent 可以自动检索、抽取、比较和写入，但不能替代研究者判断数学含义、引用忠实性和结论重要性。研究者可以在每个关键节点暂停流程、修改任务或拒绝写入；只有经过人工核查的内容，才应被视为课题组知识库中的可靠记录。Lean 的通过状态也只说明形式化代码被内核接受，原命题是否正确表达研究问题仍需人来确认。
 
 #### JSON、Git 与 Lean
 

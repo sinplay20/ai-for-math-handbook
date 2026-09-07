@@ -2,6 +2,13 @@
 
 面向数学课题组的简版 AI 使用手册，涵盖大模型与 API、Obsidian/Zotero 研究软件、Agent、Prompt、Skill、Workflow、MCP 和 Lean。
 
+## 作者与贡献者
+
+- **Author & Maintainer:** Shi
+- **AI Contributor:** ChatGPT 5.6 · OpenAI
+
+手册的内容选择、数学判断和发布责任由作者承担；ChatGPT 参与内容整理、文字编辑、结构设计与网站实现。
+
 ## 本地查看
 
 这是一个由 GitHub Pages 原生 Jekyll 构建的静态站点。每一节正文都保存在独立的 Markdown 文件中。

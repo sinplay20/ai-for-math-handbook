@@ -34,5 +34,14 @@ title: AI for Math 课题组手册
 <section class="chapter" id="chapter-3">
   <header class="chapter-header"><span>CHAPTER 03</span><h2>开发者进阶：技术扩展概览</h2><p>理解模型如何连接数据、调用工具、执行研究任务并接受形式化检查。</p></header>
   {% for section in chapter_3 %}<article class="manual-section" id="{{ section.slug }}"><div class="section-no">{{ section.number }}</div><h3>{{ section.title }}</h3><div class="section-content">{{ section.content | markdownify }}</div></article>{% endfor %}
-  <footer class="chapter-end"><span>END OF BASIC EDITION</span><h2>先完成一个真实任务，<br>再逐步扩展系统。</h2><p>这份简版手册将随着课题组的实际使用持续更新。</p><a href="#top">返回顶部 ↑</a></footer>
+  <footer class="chapter-end">
+    <span>END OF BASIC EDITION</span>
+    <h2>先完成一个真实任务，<br>再逐步扩展系统。</h2>
+    <p>这份简版手册将随着课题组的实际使用持续更新。</p>
+    <div class="credits" aria-label="作者与贡献者">
+      <div><span>AUTHOR &amp; MAINTAINER</span><strong>Shi</strong></div>
+      <div><span>AI CONTRIBUTOR</span><strong>ChatGPT 5.6 <small>· OpenAI</small></strong></div>
+    </div>
+    <a href="#top">返回顶部 ↑</a>
+  </footer>
 </section>
