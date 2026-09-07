@@ -59,7 +59,7 @@ nav_title: 研究知识流
   <p class="research-flow-hint">在窄屏设备上左右滑动查看完整横向结构。</p>
 </figure>
 
-图中的主线始终保持横向：**Zotero ↔ Agent ↔ Logseq / Obsidian ↔ JSON ↔ Lean**。LLM 和 Git 是两条辅助能力：Agent 通过 API 调用 LLM，Git 则对 JSON 等可交换、可审查的文件进行版本控制。
+LLM 和 Git 是两条辅助能力：Agent 通过 API 调用 LLM，Git 则对 JSON 等可交换、可审查的文件进行版本控制。
 
 #### 主线中的三个核心角色
 
