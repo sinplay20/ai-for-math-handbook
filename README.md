@@ -30,7 +30,8 @@ _sections/
 ├── 03-03-danus.md
 ├── 03-04-research-knowledge-flow.md
 ├── 03-05-lean.md
-└── 03-06-sharing.md
+├── 03-06-sharing.md
+└── 03-07-node-python-git.md
 ```
 
 `03-04-lean.md` 和 `03-05-sharing.md` 是兼容网页覆盖上传的退役占位文件，用于停用 v0.2 遗留章节，避免目录重复；不要在其中编写正文。
