@@ -14,12 +14,13 @@ title: AI for Math 课题组手册
 <section class="route-map" aria-label="学习路线">
   <article><b>01</b><h2>先会使用</h2><p>对话、API 与研究软件</p></article>
   <article><b>02</b><h2>形成方法</h2><p>Agent、Prompt 与 Workflow</p></article>
-  <article><b>03</b><h2>理解系统</h2><p>MCP、研究知识流与 Lean</p></article>
+  <article><b>03</b><h2>理解系统</h2><p>MCP、Agent 系统与 Lean</p></article>
 </section>
 
-{% assign chapter_1 = site.sections | where: "chapter", 1 | sort: "order" %}
-{% assign chapter_2 = site.sections | where: "chapter", 2 | sort: "order" %}
-{% assign chapter_3 = site.sections | where: "chapter", 3 | sort: "order" %}
+{% assign visible_sections = site.sections | where_exp: "section", "section.hidden != true" %}
+{% assign chapter_1 = visible_sections | where: "chapter", 1 | sort: "order" %}
+{% assign chapter_2 = visible_sections | where: "chapter", 2 | sort: "order" %}
+{% assign chapter_3 = visible_sections | where: "chapter", 3 | sort: "order" %}
 
 <section class="chapter" id="chapter-1">
   <header class="chapter-header"><span>CHAPTER 01</span><h2>开始使用大模型</h2><p>目标不是一次掌握所有工具，而是建立一个可靠、可重复的基本使用方式。</p></header>

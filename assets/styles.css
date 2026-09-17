@@ -215,6 +215,84 @@ pre { margin: 0; padding: 20px; overflow-x: auto; font-size: .82rem; line-height
 .workflow-example span { padding: 7px 11px; border: 1px solid rgba(255,255,255,.2); font-size: .82rem; }
 .workflow-example i { color: var(--cyan); font-style: normal; }
 
+.personal-knowledge-flow {
+  max-width: 100%;
+  margin: 32px 0 38px;
+  padding: 24px 20px 18px;
+  background: #f8fbfd;
+  border: 1px solid var(--line);
+}
+.personal-knowledge-flow figcaption {
+  margin: 0 0 20px;
+  color: var(--navy);
+  text-align: center;
+  font-family: Georgia, "Noto Serif SC", serif;
+  font-size: 1.08rem;
+  font-weight: 700;
+}
+.personal-flow-scroll { max-width: 100%; overflow-x: auto; padding: 2px 2px 10px; }
+.personal-flow-scroll:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+.personal-flow-grid {
+  min-width: 660px;
+  display: grid;
+  grid-template-columns: minmax(150px, 1fr) 66px minmax(190px, 1.18fr) 66px minmax(170px, 1.05fr);
+  align-items: center;
+  gap: 8px;
+}
+.personal-flow-node {
+  min-height: 118px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 14px;
+  color: var(--navy);
+  text-align: center;
+  background: #e8f4f6;
+  border: 1px solid #c8e3e7;
+  border-radius: 10px;
+}
+.personal-flow-node strong { font-size: .94rem; line-height: 1.35; }
+.personal-flow-node span { margin-top: 7px; color: var(--muted); font-size: .68rem; line-height: 1.4; }
+.personal-flow-agent { color: white; background: var(--navy-2); border-color: var(--navy-2); }
+.personal-flow-agent span { color: #9fb8ca; }
+.personal-flow-memory { background: #eaf0fa; border-color: #ccd9ec; }
+.personal-flow-link { display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--cyan-dark); font-size: .67rem; font-weight: 800; }
+.personal-flow-link i { width: 100%; color: #667b90; font-size: 1.35rem; font-style: normal; line-height: 1; text-align: center; }
+.personal-flow-hint { display: none; margin: 5px 0 0 !important; color: var(--muted); font-size: .7rem; text-align: center; }
+
+.project-entry {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: center;
+  margin: 34px 0 4px;
+  padding: 24px 26px;
+  background: linear-gradient(135deg, #071426, #102d4c);
+  border: 1px solid #1b3b59;
+  border-radius: 8px;
+}
+.project-entry-label { display: block; color: var(--cyan) !important; font-size: .65rem; font-weight: 800; letter-spacing: .14em; }
+.project-entry strong { display: block; margin-top: 5px; color: white; font-family: Georgia, "Noto Serif SC", serif; font-size: 1.18rem; }
+.project-entry p { margin: 6px 0 0; color: #a9bdce; font-size: .84rem; line-height: 1.6; }
+.project-entry-status,
+.project-entry > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 98px;
+  padding: 8px 12px;
+  color: #d8e6ee;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 999px;
+  font-size: .73rem;
+  font-weight: 750;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.project-entry > a:hover { color: white; border-color: var(--cyan); }
+
 .research-flow {
   max-width: 100%;
   margin: 34px 0 38px;
@@ -379,6 +457,10 @@ pre { margin: 0; padding: 20px; overflow-x: auto; font-size: .82rem; line-height
   .definitions > div { grid-template-columns: 88px 1fr; }
   .chapter-end { margin-inline: -18px; padding: 58px 24px; }
   .credits { grid-template-columns: 1fr; }
+  .personal-knowledge-flow { margin-inline: -10px; padding-inline: 12px; }
+  .personal-flow-hint { display: block; }
+  .project-entry { grid-template-columns: 1fr; gap: 16px; padding: 22px; }
+  .project-entry-status, .project-entry > a { justify-self: start; }
   .research-flow { margin-inline: -10px; padding-inline: 12px; }
   .research-flow-hint { display: block; }
 }
@@ -396,6 +478,9 @@ pre { margin: 0; padding: 20px; overflow-x: auto; font-size: .82rem; line-height
   .intro { min-height: auto; }
   .chapter, .manual-section { break-inside: avoid; }
   a { color: inherit; }
+  .personal-flow-scroll { overflow: visible; }
+  .personal-flow-grid { min-width: 0; }
+  .personal-flow-hint { display: none; }
   .research-flow-scroll { overflow: visible; }
   .research-flow-grid { min-width: 0; }
   .research-flow-hint { display: none; }

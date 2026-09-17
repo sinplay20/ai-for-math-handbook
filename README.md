@@ -22,6 +22,7 @@ _sections/
 ├── 01-01-web-and-desktop.md
 ├── 01-02-api.md
 ├── 01-03-ai-in-research-apps.md
+├── 01-04-personal-knowledge-flow.md
 ├── 02-01-agent-tools.md
 ├── 02-02-prompt.md
 ├── 02-03-skill-workflow.md
@@ -30,11 +31,12 @@ _sections/
 ├── 03-03-danus.md
 ├── 03-04-research-knowledge-flow.md
 ├── 03-05-lean.md
-├── 03-06-sharing.md
-└── 03-07-node-python-git.md
+└── 03-06-sharing.md
 ```
 
 `03-04-lean.md` 和 `03-05-sharing.md` 是兼容网页覆盖上传的退役占位文件，用于停用 v0.2 遗留章节，避免目录重复；不要在其中编写正文。
+
+`03-04-research-knowledge-flow.md` 是保留的课题组研究知识流草案。它的 front matter 中设置了 `hidden: true`，因此文件仍在仓库中，但不会出现在网页正文或侧边目录。
 
 修改某一节时，只编辑对应 `.md` 文件并提交。首页和侧边目录会根据文件顶部的 `chapter`、`order`、`number`、`title` 和 `slug` 自动生成。
 
@@ -76,6 +78,10 @@ bundle exec jekyll serve
 - 首页装配逻辑位于 `index.html`。
 - 页面框架位于 `_layouts/default.html`。
 - 研究知识流图的 HTML 位于 `_sections/03-04-research-knowledge-flow.md`，样式位于 `assets/styles.css`。
+- 个人最简知识沉淀流位于 `_sections/01-04-personal-knowledge-flow.md`。
+- “个人知识沉淀流”暂时显示“仓库筹备中”。创建仓库后，在对应 Markdown 文件中把 `project-entry-status` 的 `<span>` 换成带真实地址的 `<a>` 即可启用入口。
+- “课题组 Skill 建设”入口位于 `_sections/02-03-skill-workflow.md`，指向 [`sinplay20/10.skill`](https://github.com/sinplay20/10.skill)。
+- VS Code、Git 与 LaTeX 版本管理模块位于 `_sections/03-06-sharing.md`，包含从安装 Git、在 VS Code 中 Clone 到启动本地项目 Agent 的简明路径；实践仓库为 [`sinplay20/ai-latex-git-workflow`](https://github.com/sinplay20/ai-latex-git-workflow)。
 - 站点配置位于 `_config.yml`。
 - 视觉样式位于 `assets/styles.css`。
 - 目录、阅读进度和代码复制功能位于 `assets/app.js`。

@@ -17,16 +17,17 @@
   </header>
   <aside class="sidebar" id="sidebar">
     <div class="brand-block"><a class="brand" href="#top">AI <span>∴</span> MATH</a><p>课题组使用手册</p></div>
-    {% assign nav_1 = site.sections | where: "chapter", 1 | sort: "order" %}
-    {% assign nav_2 = site.sections | where: "chapter", 2 | sort: "order" %}
-    {% assign nav_3 = site.sections | where: "chapter", 3 | sort: "order" %}
+    {% assign visible_sections = site.sections | where_exp: "section", "section.hidden != true" %}
+    {% assign nav_1 = visible_sections | where: "chapter", 1 | sort: "order" %}
+    {% assign nav_2 = visible_sections | where: "chapter", 2 | sort: "order" %}
+    {% assign nav_3 = visible_sections | where: "chapter", 3 | sort: "order" %}
     <nav class="side-nav" aria-label="手册目录">
       <a href="#top" class="nav-home active">首页</a>
       <div class="nav-group"><p>01 · 开始使用</p>{% for section in nav_1 %}<a href="#{{ section.slug }}">{{ section.number }} {{ section.nav_title | default: section.title }}</a>{% endfor %}</div>
       <div class="nav-group"><p>02 · 使用进阶</p>{% for section in nav_2 %}<a href="#{{ section.slug }}">{{ section.number }} {{ section.nav_title | default: section.title }}</a>{% endfor %}</div>
       <div class="nav-group"><p>03 · 技术扩展</p>{% for section in nav_3 %}<a href="#{{ section.slug }}">{{ section.number }} {{ section.nav_title | default: section.title }}</a>{% endfor %}</div>
     </nav>
-    <div class="sidebar-foot"><span>简版 · v0.3.4</span><a href="{{ site.repository_url }}" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+    <div class="sidebar-foot"><span>简版 · v0.3.6</span><a href="{{ site.repository_url }}" target="_blank" rel="noreferrer">GitHub ↗</a></div>
   </aside>
   <button class="scrim" id="scrim" type="button" aria-label="关闭目录"></button>
   <main id="top">{{ content }}</main>

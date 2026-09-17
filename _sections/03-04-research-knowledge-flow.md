@@ -5,6 +5,7 @@ number: "3.4"
 slug: section-3-4
 title: 课题组研究知识流
 nav_title: 研究知识流
+hidden: true
 ---
 
 这条知识流的目标，是让论文材料可以被 Agent 读取、加工和回溯，让人工审定后的研究知识能够长期积累，并在必要时进入 Lean 做形式化验证。
