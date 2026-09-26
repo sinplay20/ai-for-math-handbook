@@ -567,3 +567,30 @@ pre { margin: 0; padding: 20px; overflow-x: auto; font-size: .82rem; line-height
   .research-flow-grid { min-width: 0; }
   .research-flow-hint { display: none; }
 }
+
+/* v0.3.8: only the new recommendation tables, setup URLs and prompt controls. */
+.table-scroll { max-width: 100%; overflow-x: auto; margin: 26px 0; }
+.table-scroll:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+.table-scroll table { min-width: 650px; margin: 0; }
+.agent-comparison table { min-width: 820px; }
+.table-scroll th, .table-scroll td { overflow-wrap: anywhere; }
+.table-scroll th:first-child, .table-scroll td:first-child { white-space: nowrap; overflow-wrap: normal; }
+.mcp-recommendations th:first-child { min-width: 104px; }
+.agent-comparison th:first-child { min-width: 148px; }
+#agent-selection, #mcp-recommendations, #mcp-setup-prompt { scroll-margin-top: 84px; }
+#mcp-setup-steps > li > div { min-width: 0; }
+.setup-repository a { overflow-wrap: anywhere; word-break: break-word; }
+.prompt-copy { margin-top: 14px; padding: 7px 12px; color: var(--navy); background: white; border: 1px solid var(--cyan-dark); border-radius: 3px; font-size: .82rem; cursor: pointer; }
+.prompt-copy:hover { background: #eaf7f8; }
+.prompt-copy:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+@media print {
+  .table-scroll { overflow: visible; }
+  .table-scroll table { min-width: 0; }
+  .prompt-copy { display: none; }
+}
+
+/* v0.3.9: additions are scoped to the knowledge-base progression section. */
+#knowledge-progression { scroll-margin-top: 84px; }
+.knowledge-progression h5 { margin: 28px 0 10px; color: var(--navy); font-size: .95rem; }
+.knowledge-comparison th:first-child { min-width: 104px; }
+

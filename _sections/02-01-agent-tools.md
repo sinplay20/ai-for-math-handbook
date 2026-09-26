@@ -102,9 +102,35 @@ Pi 和 DeepSeek Harness 因此属于同一基础类别：Pi 更轻量，适合�
 | 工具类型 | 可选工具 | 适合的任务 |
 | --- | --- | --- |
 | 对话型桌面应用 | ChatGPT Desktop、Claude Desktop | 日常对话、文件分析与低配置使用 |
-| 编程与项目型 Agent | Codex、Claude Code | 处理命令行、代码库、LaTeX 项目和本地文件 |
+| 编程与项目型 Agent | OpenCode、Codex、Claude Code | 处理命令行、代码库、LaTeX 项目和本地文件 |
 | Agent Harness 与可扩展 Runtime | Pi、DeepSeek Harness | 组合模型、工具、Agent Loop、Skill 和扩展 |
 | 完整开放 Agent 系统 | Hermes、OpenClaw | 需要长期记忆、多入口、任务调度或持续运行的场景 |
+
+#### 四款 Agent 的选型推荐
+
+这里重点比较 **ChatGPT Desktop、OpenCode、Pi 与 Hermes Agent**。Hermes 指 [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent)。门槛与场景是本手册的使用建议，不是模型性能排名；同一个工具接入不同模型、权限和运行环境，实际表现也会不同。
+
+<div class="table-scroll agent-comparison" id="agent-selection" role="region" aria-label="四款 Agent 选型比较，窄屏可横向滚动" tabindex="0" markdown="1">
+
+| 工具 | 入口与上手门槛 | 模型与费用方式 | MCP 与工作流扩展 | 优先考虑的研究场景 |
+| --- | --- | --- | --- | --- |
+| **ChatGPT Desktop** | 较低：图形桌面入口；涉及文件和工具时仍需理解授权 | 以 ChatGPT 账户提供的模型和额度为主；具体功能与计费取决于账户及使用方式 | 支持本机 STDIO 与 Streamable HTTP MCP；入口和可用能力以客户端版本及工作区策略为准 | 日常论文讨论、文件分析；按第 1.4 节连接文献库与笔记库 |
+| **OpenCode** | 中等：终端、桌面或 IDE 入口；需要理解项目路径和基本命令 | 可配置多家模型供应商；使用 API 或其支持的登录方案，费用按供应商和方案计算 | 原生支持本地与远程 MCP；有 Agent、权限、Skill 与插件配置 | 修改 LaTeX、编译排错、研究脚本和项目文件；希望灵活选择模型 |
+| **Pi** | 较高：轻量终端 Harness；定制越多，维护责任越大 | 多供应商 API；部分供应商支持登录或订阅接入，仍需核对使用条款与计费 | 核心不内建 MCP；通过扩展接入。Skill、提示模板与 TypeScript 扩展适合组合自定义工作流 | 想精细组织研究工具、核查步骤和可复用流程，并愿意维护自己的配置 |
+| **Hermes Agent** | 中至高：终端、桌面与消息入口；持续运行时还需维护服务 | 可选择 Nous Portal、OpenRouter 等供应商或自定义端点；模型、工具和部署成本分别核算 | 原生 MCP、Skill、跨会话记忆、定时任务与消息渠道；不等于自动获得不受限权限 | 定期资料整理、长期研究助理、多入口任务；需要审核记忆写入与自动化结果 |
+
+</div>
+
+<p class="caption">窄屏可左右滑动查看完整表格。</p>
+
+**先看任务，再看工具。** 图形界面不意味着没有执行风险；支持 MCP 也不意味着已经安装了 Zotero、Obsidian 等服务。开源 Agent 软件不等于模型调用免费，已有聊天订阅也不保证能在任何第三方客户端通用。
+
+<div class="warning">
+  <b>不要把扩展功能和默认权限混为一谈</b>
+  <p>Pi 的 MCP 接入与额外审批流程需要相应扩展或外部隔离；核心不是默认每次都弹窗确认。OpenCode 虽有权限规则，但默认也不是所有操作都询问。无论选哪一个工具，都先核对文件写入、命令执行和外部服务权限，不能只靠一句“请先询问我”。Hermes 的长期记忆与自动生成的 Skill 也需要人工审查，不能当作已核查的数学结论。</p>
+</div>
+
+本节功能说明依据 [ChatGPT 桌面端 MCP 文档](https://developers.openai.com/codex/extend/mcp)、[OpenCode 文档](https://opencode.ai/docs/)与[权限说明](https://opencode.ai/docs/permissions/)、[Pi 文档](https://github.com/earendil-works/pi-mono/tree/main/packages/coding-agent)、[Hermes 官方文档](https://hermes-agent.nousresearch.com/docs/)。功能和套餐会更新，安装前请核对当前说明；这里不提供速度、费用或安全性的实测排名。
 
 #### 配置 Agent 时实际在配置什么
 
@@ -114,19 +140,27 @@ Pi 和 DeepSeek Harness 因此属于同一基础类别：Pi 更轻量，适合�
 4. **运行边界**：设置工作目录、沙箱、最大轮数、超时、预算、停止条件和人工确认点。
 5. **状态与记录**：决定保留哪些对话、工具结果、日志和长期记忆，并检查其中是否含有敏感信息。
 
-#### 推荐的选择顺序
+#### 按需求选择，而不是按功能多少排名
 
-1. 第一次使用：从 ChatGPT Desktop 或 Claude Desktop 开始。
-2. 需要处理代码、LaTeX 和项目文件：选择 Codex 或 Claude Code。
-3. 想自己组合模型、工具和工作流：尝试 Pi 或 DeepSeek Harness。
-4. 需要可长期运行的个人 Agent：再了解 Hermes 或 OpenClaw。
-5. 不要同时配置全部工具；先用一个工具完成真实任务。
+1. **不熟悉命令行，先完成日常论文与笔记任务**：优先从 ChatGPT Desktop 开始，复杂配置由 Agent 引导、课题组协助核对。
+2. **主要处理 LaTeX、研究脚本与项目文件，想自由选择模型**：优先考虑 OpenCode，先在测试项目中设置需要确认的操作。
+3. **希望自己组合工具和研究工作流**：考虑 Pi；同时准备维护扩展、权限边界与配置，而不是把“轻量”理解为已经替你配置好全部功能。
+4. **确实需要长期记忆、定时任务或消息渠道**：考虑 Hermes Agent；先建立人工核查与停止机制，再启用持续运行。
+5. **只选一个完成真实任务**：不必同时安装四款；工具是否适合你，比功能清单是否最长更重要。
+
+#### Agent 参考资料
+
+<div class="note" id="agent-reference">
+  <b>推荐延伸阅读</b>
+  <p><a href="https://github.com/bojieli/ai-agent-book" target="_blank" rel="noreferrer">《深入理解 AI Agent：设计原理与工程实践》 · bojieli/ai-agent-book</a></p>
+  <p>可补充学习 Agent、上下文工程、记忆、工具与 MCP、Coding Agent 及多 Agent 协作。这是原理与工程实践参考资料，不是需要安装的 Agent 工具；具体软件配置仍以各项目官方文档为准。</p>
+</div>
 
 #### 官方入口
 
 - [ChatGPT](https://chatgpt.com/download/) · [Claude](https://claude.com/download)
-- [Codex](https://developers.openai.com/codex/) · [Claude Code](https://code.claude.com/docs/en/overview)
-- [Pi](https://github.com/badlogic/pi-mono) · [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)
+- [OpenCode](https://opencode.ai/docs/) · [Codex](https://developers.openai.com/codex/) · [Claude Code](https://code.claude.com/docs/en/overview)
+- [Pi](https://pi.dev/) · [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)
 - [Hermes](https://github.com/NousResearch/hermes-agent) · [OpenClaw](https://github.com/openclaw/openclaw)
 
 > **权限提示**

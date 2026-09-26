@@ -1,4 +1,5 @@
 title: AI for Math 课题组手册
+version: "0.3.9"
 description: 面向数学课题组的 AI 使用入门手册：大模型、API、研究软件、Agent、MCP 与 Lean。
 url: https://sinplay20.github.io
 baseurl: /ai-for-math-handbook
@@ -12,5 +13,10 @@ collections:
 
 exclude:
   - README.md
+  - CHANGELOG.md
+  - VALIDATION.md
+  - UPLOAD.md
+  - validation
+  - scripts
   - Gemfile
   - Gemfile.lock

@@ -6,8 +6,8 @@
   <meta name="description" content="{{ site.description }}">
   <meta name="theme-color" content="#071426">
   <title>{{ page.title | default: site.title }}</title>
-  <link rel="stylesheet" href="{{ '/assets/styles.css' | relative_url }}">
-  <script src="{{ '/assets/app.js' | relative_url }}" defer></script>
+  <link rel="stylesheet" href="{{ '/assets/styles.css' | relative_url }}?v={{ site.version }}">
+  <script src="{{ '/assets/app.js' | relative_url }}?v={{ site.version }}" defer></script>
 </head>
 <body>
   <div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
@@ -27,7 +27,7 @@
       <div class="nav-group"><p>02 · 使用进阶</p>{% for section in nav_2 %}<a href="#{{ section.slug }}">{{ section.number }} {{ section.nav_title | default: section.title }}</a>{% endfor %}</div>
       <div class="nav-group"><p>03 · 技术扩展</p>{% for section in nav_3 %}<a href="#{{ section.slug }}">{{ section.number }} {{ section.nav_title | default: section.title }}</a>{% endfor %}</div>
     </nav>
-    <div class="sidebar-foot"><span>简版 · v0.3.7</span><a href="{{ site.repository_url }}" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+    <div class="sidebar-foot"><span>简版 · v{{ site.version }}</span><a href="{{ site.repository_url }}" target="_blank" rel="noreferrer">GitHub ↗</a></div>
   </aside>
   <button class="scrim" id="scrim" type="button" aria-label="关闭目录"></button>
   <main id="top">{{ content }}</main>
